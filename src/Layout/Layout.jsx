@@ -1,9 +1,9 @@
 import { Outlet } from 'react-router-dom';
 
-export const HomePage = () => {
+export const LayOut = () => {
   return (
     <>
-      <div>HomePage</div>
+      <div>LayOut</div>
       <Outlet />
     </>
   );
