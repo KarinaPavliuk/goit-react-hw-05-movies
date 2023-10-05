@@ -1,10 +1,11 @@
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 export const LayOut = () => {
   return (
-    <>
-      <div>LayOut</div>
+    <div>
+      <Link to="/">Home</Link>
+      <Link to="movies">Movies</Link>
       <Outlet />
-    </>
+    </div>
   );
 };
