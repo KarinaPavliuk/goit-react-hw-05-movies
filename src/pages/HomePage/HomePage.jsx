@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { getTrendingMovies } from 'API/movies';
 
 export const HomePage = () => {
@@ -12,12 +13,8 @@ export const HomePage = () => {
         setTrendingMovies(null);
         setIsLoading(true);
         setError('');
-        const data = await getTrendingMovies();
-        console.log(
-          'data >>>>',
-          data.results.map(item => item)
-        );
-        setTrendingMovies(data);
+        const response = await getTrendingMovies();
+        setTrendingMovies(response);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -35,7 +32,9 @@ export const HomePage = () => {
       {trendingMovies && (
         <ul>
           {trendingMovies.results.map(({ id, title }) => (
-            <li key={id}>{title}</li>
+            <li key={id}>
+              <Link to={`/movies/${id}`}>{title}</Link>
+            </li>
           ))}
         </ul>
       )}

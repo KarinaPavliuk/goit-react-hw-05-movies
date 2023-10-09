@@ -28,16 +28,16 @@ export const getMovieDetails = async movieId => {
   return data;
 };
 
-export const getMovieCredits = async () => {
+export const getMovieCredits = async movieId => {
   const { data } = await axios(
-    `/3/movie/{movie_id}/credits?api_key=${API_KEY}`
+    `/3/movie/${movieId}/credits?api_key=${API_KEY}`
   );
   return data;
 };
 
-export const getMovieReviews = async () => {
+export const getMovieReviews = async movieId => {
   const { data } = await axios(
-    `/3/movie/{movie_id}/reviews?api_key=${API_KEY}`
+    `/3/movie/${movieId}/reviews?api_key=${API_KEY}`
   );
   return data;
 };
