@@ -11,12 +11,3 @@ export const LayOut = () => {
     </>
   );
 };
-
-// const Layout = () => {
-//   return (
-//     <>
-//       <Header />
-//       <Outlet />
-//     </>
-//   );
-// };

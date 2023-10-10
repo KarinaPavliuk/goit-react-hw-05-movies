@@ -17,6 +17,7 @@ export const ReviewsPage = () => {
             id,
           })
         );
+
         setReview(normalisedReviews);
       } catch (error) {
         alert(error);
@@ -29,12 +30,16 @@ export const ReviewsPage = () => {
   return (
     <>
       <ul>
-        {review?.map(({ author, content, id }) => (
-          <li key={id}>
-            <h3>Author: {author}</h3>
-            <p>{content}</p>
-          </li>
-        ))}
+        {review?.length ? (
+          review?.map(({ author, content, id }) => (
+            <li key={id}>
+              <h3>Author: {author}</h3>
+              <p>{content}</p>
+            </li>
+          ))
+        ) : (
+          <p>We don't have any reviews for this movie.</p>
+        )}
       </ul>
     </>
   );
