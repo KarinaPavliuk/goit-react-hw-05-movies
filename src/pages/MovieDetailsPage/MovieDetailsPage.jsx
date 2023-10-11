@@ -1,5 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Link, Outlet, useNavigate, useParams } from 'react-router-dom';
+import {
+  Link,
+  Outlet,
+  useLocation,
+  useNavigate,
+  useParams,
+} from 'react-router-dom';
 
 import { getMovieDetails } from 'API/movies';
 
@@ -7,6 +13,7 @@ export const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -23,7 +30,7 @@ export const MovieDetailsPage = () => {
   }, [movieId]);
 
   const handleClickBackBtn = () => {
-    navigate(-1);
+    navigate(location.state);
   };
 
   const { genres, id, overview, poster_path, title, vote_average } =
@@ -60,10 +67,14 @@ export const MovieDetailsPage = () => {
         <h4>Additional information</h4>
         <ul>
           <li>
-            <Link to={`/movies/${id}/cast`}>Cast</Link>
+            <Link to={`/movies/${id}/cast`} state={location.state}>
+              Cast
+            </Link>
           </li>
           <li>
-            <Link to={`/movies/${id}/reviews`}>Review</Link>
+            <Link to={`/movies/${id}/reviews`} state={location.state}>
+              Review
+            </Link>
           </li>
         </ul>
       </div>
