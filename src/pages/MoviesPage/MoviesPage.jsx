@@ -17,8 +17,7 @@ export const MoviesPage = () => {
           id,
           title,
         }));
-        console.log(normalisedQuery);
-        console.log(query);
+
         setSearchMovie(normalisedQuery);
       } catch (error) {
         alert(error);
@@ -46,22 +45,20 @@ export const MoviesPage = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <button type="submit">
-          <span>Search</span>
-        </button>
-
         <input
           type="text"
           name="query"
           autoComplete="off"
           autoFocus
-          placeholder="Search movie"
           //onChange={handleInputChange}
           //onClick={clearInput}
           // value={}
         />
+        <button type="submit">
+          <span>Search</span>
+        </button>
       </form>
-      {searchMovie?.length ? (
+      {searchMovie?.length && (
         <ul>
           {searchMovie?.map(({ id, title }) => (
             <li key={id}>
@@ -69,8 +66,6 @@ export const MoviesPage = () => {
             </li>
           ))}
         </ul>
-      ) : (
-        <p>Type something in the search field or change the value.</p>
       )}
     </>
   );

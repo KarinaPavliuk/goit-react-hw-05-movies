@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Link, Outlet, useNavigate, useParams } from 'react-router-dom';
 
 import { getMovieDetails } from 'API/movies';
 
 export const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -21,11 +22,16 @@ export const MovieDetailsPage = () => {
     fetchMovieDetails();
   }, [movieId]);
 
+  const handleClickBackBtn = () => {
+    navigate(-1);
+  };
+
   const { genres, id, overview, poster_path, title, vote_average } =
     movie || {};
 
   return (
     <>
+      <button onClick={handleClickBackBtn}>{'<---- Go back'}</button>
       <div key={id}>
         {poster_path && (
           <img
