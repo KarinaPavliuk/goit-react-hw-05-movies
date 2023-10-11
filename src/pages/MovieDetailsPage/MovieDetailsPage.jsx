@@ -10,7 +10,7 @@ import {
 import { getMovieDetails } from 'API/movies';
 import css from './MovieDetailsPage.module.css';
 
-export const MovieDetailsPage = () => {
+const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const navigate = useNavigate();
@@ -83,3 +83,5 @@ export const MovieDetailsPage = () => {
     </div>
   );
 };
+
+export default MovieDetailsPage;
