@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 
 import { getMovieDetails } from 'API/movies';
+import css from './MovieDetailsPage.module.css';
 
 export const MovieDetailsPage = () => {
   const { movieId } = useParams();
@@ -37,9 +38,9 @@ export const MovieDetailsPage = () => {
     movie || {};
 
   return (
-    <>
-      <button onClick={handleClickBackBtn}>{'<---- Go back'}</button>
-      <div key={id}>
+    <div className={css.container}>
+      <button onClick={handleClickBackBtn}>&#8592; Go back</button>
+      <div className={css.mainDetails} key={id}>
         {poster_path && (
           <img
             src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${poster_path}`}
@@ -55,7 +56,7 @@ export const MovieDetailsPage = () => {
           </div>
           <div>
             <h3>Genres</h3>
-            <ul>
+            <ul className={css.genresList}>
               {genres?.map(({ id, name }) => (
                 <li key={id}>{name}</li>
               ))}
@@ -79,6 +80,6 @@ export const MovieDetailsPage = () => {
         </ul>
       </div>
       <Outlet />
-    </>
+    </div>
   );
 };

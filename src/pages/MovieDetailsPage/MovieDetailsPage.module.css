@@ -1,0 +1,18 @@
+.container {
+  padding: 10px 0px;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+.mainDetails {
+  display: flex;
+  column-gap: 30px;
+  /* border-bottom: 4px solid rgba(128, 128, 128, 0.313); */
+  box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 0.1);
+  padding: 10px 0px;
+}
+
+.genresList {
+  list-style-type: none;
+  display: flex;
+  column-gap: 10px;
+}

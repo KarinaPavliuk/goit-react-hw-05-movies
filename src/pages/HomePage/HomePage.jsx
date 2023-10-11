@@ -27,7 +27,7 @@ export const HomePage = () => {
 
   return (
     <>
-      Trending today
+      <h2>Trending today</h2>
       {isLoading && 'Loading...'}
       {error && <p>{error}</p>}
       {trendingMovies && (
